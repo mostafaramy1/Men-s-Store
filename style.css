@@ -76,18 +76,25 @@ button , li {
     font-size: clamp(1.5rem, 4vw + 1rem, 2.5rem);
 }
 .main_image_content button {
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: clamp(10px, 1.5vw, 16px) clamp(23px, 3.5vw, 45px);
+    border-radius: 50px;
     background-color: var(--main-color);
     color: black;
-    font-size: 24px;
+    font-size: clamp(18px, 1.3vw, 22px);
     border: 1px var(--main-color) solid;
     margin: 10px 0 0 37px;
     transition: all 0.5s;
+    border: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    white-space: nowrap;
+    display: inline-block;
+
 }
 .main_image_content button:hover {
     background-color: var(--hover-color);
     border: var(--main-color) 1px solid !important;
+    transform: translateY(-2px);
 }
 .active_filter {
     background-color: var(--main-color) !important;
