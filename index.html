@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Men's Store</title>
+        <link rel="icon" type="image/png" href="./images/icon.jpg" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="./media.css" />
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <section>
+            <div id="hero" class="nav">
+                <div class="nav_lef">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="nav_middle">
+                    <ul>
+                        <li data-category="trending">أحدث الصيحات</li>
+                        <li data-category="belts">أحزمة</li>
+                        <li data-category="wallets">محافظ</li>
+                        <li data-category="watches">ساعات</li>
+                        <li class="active_nav_links" data-category="all">الكل</li>
+                    </ul>
+                </div>
+                <div class="nav_right">
+                    <h2><span>Men's</span> Store</h2>
+                    <div class="bars">
+                        <i class="fa-solid fa-bars" id="menuBtn"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="main_image">
+                <div class="main_image_content">
+                    <h1>
+                        أناقة تتجلى في <br />
+                        أصغر التفاصيل
+                    </h1>
+                    <a href="https://wa.me/201023039921" target="_blank"><button>تسوق الأن</button></a>
+                </div>
+            </div>
+            <!-- القائمة الجانبية للموبايل -->
+            <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-header">
+                    <h3>القائمة</h3>
+                    <button class="close-menu-btn" id="closeMenuBtn">&times;</button>
+                </div>
+
+                <ul class="mobile-nav-links">
+                    <li data-category="trending">أحدث الصيحات</li>
+                    <li data-category="belts">أحزمة</li>
+                    <li data-category="wallets">محافظ</li>
+                    <li data-category="watches">ساعات</li>
+                    <li data-category="all">الكل</li>
+                </ul>
+            </div>
+            <div class="product_section">
+                <div class="filters">
+                    <button class="filter-btn active_filter" data-category="all">الكل</button>
+                    <button class="filter-btn" data-category="watches">ساعات</button>
+                    <button class="filter-btn" data-category="wallets">محافظ</button>
+                    <button class="filter-btn" data-category="belts">أحزمة</button>
+                    <button class="filter-btn" data-category="handbags">شنط</button>
+                </div>
+                <div id="products" class="products"></div>
+            </div>
+        </section>
+        <!-- Popup Modal -->
+        <div class="modal-overlay" id="product-modal">
+            <div class="modal-content">
+                <button class="close-modal" id="close-modal">&times;</button>
+                <div class="modal-body">
+                    <div class="modal-img">
+                        <img id="modal-img" src="" alt="" />
+                    </div>
+                    <div class="modal-info">
+                        <h2 id="modal-title"></h2>
+                        <p class="modal-category" id="modal-category"></p>
+                        <div class="stars">
+                            <i class="star_color fa-solid fa-star"></i>
+                            <i class="star_color fa-solid fa-star"></i>
+                            <i class="star_color fa-solid fa-star"></i>
+                            <i class="star_color fa-solid fa-star"></i>
+                            <i class="star_color fa-solid fa-star"></i>
+                            <span id="modal-rate"></span>
+                        </div>
+                        <p class="modal-desc" id="modal-desc"></p>
+                        <p class="modal-price" id="modal-price"></p>
+                        <button class="add-to-cart-btn">أضف إلى السلة <i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <!-- القسم الأول: نبذة عن المتجر -->
+                <div class="footer-col">
+                    <h3 class="footer-logo">MEN'S <span>STORE</span></h3>
+                    <p class="footer-desc">
+                        متجرك الأول للموضة والإكسسوارات الرجالية الفاخرة. نقدم لك أحدث صيحات الساعات، المحافظ، والأحزمة
+                        بأعلى جودة.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/as.store4?mibextid=ZbWKwL" target="_blank"
+                            ><i class="fa-brands fa-facebook-f"></i
+                        ></a>
+                        <a href="https://wa.me/201023039921" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- القسم الثاني: روابط سريعة -->
+                <div class="footer-col">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#hero">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#about">عن المتجر</a></li>
+                        <li><a href="https://wa.me/201023039921">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- القسم الثالث: معلومات التواصل -->
+                <div class="footer-col">
+                    <h4>تواصل معنا</h4>
+                    <ul class="contact-info">
+                        <li><i class="fa-solid fa-location-dot"></i> دمياط</li>
+                        <li><i class="fa-solid fa-phone"></i> +20 10 23039921</li>
+                        <li><i class="fa-solid fa-envelope"></i> test.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- شريط الحقوق السفلي -->
+            <div class="footer-bottom">
+                <p>Made by Mostafa Ramy ❤️ &copy; 2026 <span>MEN'S STORE</span></p>
+            </div>
+        </footer>
+        <script src="./main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,645 @@
+.card, 
+.filter-btn, 
+.nav_middl {
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+button , li {
+    cursor: pointer;
+}
+:root {
+    --main-color: #fcc646;
+    --hover-color: #f4ab00;
+}
+.nav_middle ul {
+    display: none;
+    column-gap: 18px;
+    list-style: none;
+    font-weight: 900;
+    color: #fff4f4;
+    align-items: center;
+    font-size: 20px;
+}
+.nav {
+    background-color: rgba(0, 0, 0, 0.83);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding: 16px 0;
+}
+.nav i {
+    font-size: 24px;
+    color: white;
+    padding-inline: 10px;
+}
+.nav_lef {
+    padding-left: 10px;
+}
+.nav_right {
+    padding-right: 10px;
+    display: flex;
+    align-items: center;
+}
+.nav_right span {
+    color: var(--main-color);
+}
+.nav_right h2 {
+    padding-right: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.main_image {
+    background-image: url(./images/main_image.jpg);
+    background-size: cover;
+    background-position: center center;
+    height: clamp(250px, 30vw, 500px);
+    position: relative;
+}
+.main_image h1 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+.main_image_content {
+    position: absolute;
+    top: 20%;
+    left: 52%;
+    color: white;
+}
+.main_image_content h1 {
+    font-size: clamp(1.5rem, 4vw + 1rem, 2.5rem);
+}
+.main_image_content button {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: var(--main-color);
+    color: black;
+    font-size: 24px;
+    border: 1px var(--main-color) solid;
+    margin: 10px 0 0 37px;
+    transition: all 0.5s;
+}
+.main_image_content button:hover {
+    background-color: var(--hover-color);
+    border: var(--main-color) 1px solid !important;
+}
+.active_filter {
+    background-color: var(--main-color) !important;
+    border: var(--main-color) 1px solid !important;
+    color: black !important;
+}
+.product_section {
+    background-color: rgb(35, 34, 34);
+    padding-bottom: 40px;
+}
+.filter-btn {
+    padding: clamp(4px, 1vw, 10px) clamp(12px, 2vw, 24px);
+    background-color: rgb(35, 34, 34);
+    font-size: clamp(14px, 1.2vw, 16px);
+    margin: 2px;
+    border-radius: 50px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap; /* منع انقسام الكلمة على سطرين داخل الزر */
+    transition: all 0.3s ease;
+}
+.product_section button:hover {
+    background-color: var(--main-color);
+}
+.filters {
+    padding: 20px 0;
+    margin: auto;
+    text-align: center;
+    font-weight: bolder;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(165px, 30vw, 300px), 1fr));
+    gap: 20px;
+    padding: 5px 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.img {
+    width: 100%;
+    height: 240px;
+    position: relative;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.img_content {
+    padding: 0px 10px;
+    line-height: 1.5;
+}
+.img i {
+    position: absolute;
+    top: 20px;
+    left: 75%;
+    color: gray;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+}
+.star_color {
+    color: var(--main-color);
+}
+
+.stars span {
+    color: gray;
+}
+.stars {
+    padding: 5px 0;
+}
+
+.img_content > p {
+    text-align: right;
+}
+.gray {
+    color: gray;
+    font-size: 20px;
+}
+.disc {
+    font-size: 24px;
+}
+.price {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+.price p {
+    font-size: 20px;
+}
+.price i {
+    background-color: var(--main-color);
+    border-radius: 50%;
+    padding: 5px;
+}
+/* ######################################################################### */
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* إظهار الـ Popup عند إضافة كلاس active */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #1a1a1a;
+    color: white;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    padding: 25px;
+    position: relative;
+    border: 1px solid var(--main-color);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: var(--main-color);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+@media (min-width: 600px) {
+    .modal-body {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.modal-img {
+    flex: 1;
+}
+
+.modal-img img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-info {
+    flex: 1;
+    text-align: right;
+}
+
+.modal-info h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.modal-category {
+    color: var(--main-color);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.modal-desc {
+    color: #ccc;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.modal-price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    margin: 15px 0;
+}
+
+.add-to-cart-btn {
+    background-color: var(--main-color);
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.nav_middle ul li.active_nav_links {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 2px;
+}
+
+.nav_middle ul li {
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.nav_middle ul li:hover {
+    color: var(--main-color);
+}
+
+/* ###################################################################### */
+/* ================= FOOTER STYLES ================= */
+footer {
+    background-color: #121212;
+    color: #e0e0e0;
+    padding-top: 50px;
+    border-top: 1px solid #2a2a2a;
+    font-family: "Cairo", sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+/* عمود نبذة عن المتجر */
+.footer-logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-logo span {
+    color: #fcc646; /* اللون الذهبي */
+}
+
+.footer-desc {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* أيقونات التواصل الاجتماعي */
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.social-links a:hover {
+    background-color: #fcc646;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* عناوين الأقسام */
+/* عناوين الأقسام */
+.footer-col h4 {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+/* الخط الذهبي أسفل العنوان */
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0; /* محاذاة الخط من بداية النص جهة اليمين */
+  width: 40px;
+  height: 2px;
+  background-color: #fcc646;
+}
+
+/* القوائم والروابط */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition:
+        color 0.3s ease,
+        padding-right 0.3s ease;
+    display: inline-block;
+}
+
+.footer-col ul li a:hover {
+    color: #fcc646;
+    padding-right: 6px;
+}
+
+/* معلومات الاتصال */
+.contact-info li {
+    color: #aaa;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info li i {
+    color: #fcc646;
+    font-size: 16px;
+}
+
+/* الحقوق في الأسفل */
+.footer-bottom {
+    background-color: #0a0a0a;
+    text-align: center;
+    padding: 18px 10px;
+    border-top: 1px solid #1f1f1f;
+    font-size: 13px;
+    color: #888;
+}
+
+.footer-bottom span {
+    color: #fcc646;
+    font-weight: 600;
+}
+
+/* تجاوب إضافي للشاشات الصغيرة */
+@media (max-width: 600px) {
+    .footer-container {
+        text-align: center;
+    }
+
+    .footer-col h4::after {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+}
+
+/* الخلفية المظلمة عند فتح القائمة */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* القائمة الجانبية */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -280px; /* مخفية خارج الشاشة جهة اليمين */
+  width: 280px;
+  height: 100%;
+  background-color: #1a1a1a;
+  z-index: 999;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* إظهار القائمة عند إضافة كلاس open */
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.mobile-menu-header h3 {
+  color: var(--main-color, #fcc646);
+  font-size: 18px;
+}
+
+.close-menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links li {
+  color: #fff;
+  padding: 12px 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #282828;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-links li:hover {
+  color: var(--main-color, #fcc646);
+  padding-right: 18px;
+}
+
+/* ######################################################################### */
+/* sm (min-width: 640px) */
+@media screen and (min-width: 640px) {
+    .main_image_content {
+        top: 20%;
+        left: 60%;
+    }
+    .img i {
+        top: 20px;
+        left: 80%;
+    }
+    .footer-col h4::after{
+        visibility: hidden;
+    }
+}
+
+/* md (min-width: 768px) */
+@media screen and (min-width: 768px) {
+    .main_image_content {
+        top: 25%;
+        left: 65%;
+    }
+    .nav_lef {
+        padding-left: 20px;
+    }
+    .nav_right {
+        padding-right: 20px;
+    }
+    .price p {
+        padding: 0 10px;
+    }
+}
+
+/* lg (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    .main_image_content {
+        top: 25%;
+        left: 70%;
+    }
+    .nav_lef {
+        padding-left: 30px;
+    }
+    .nav_right {
+        padding-right: 30px;
+    }
+    .nav_middle ul {
+        display: flex;
+    }
+    .fa-bars {
+        display: none;
+    }
+}
+
+/* xl (min-width: 1280px) */
+@media screen and (min-width: 1280px) {
+}
+
+/* xxl (min-width: 1536px) */
+@media screen and (min-width: 1536px) {
+}
